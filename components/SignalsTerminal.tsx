@@ -234,29 +234,9 @@ const SignalRow = memo(
               {coin.signalName.replace(/\s*\(.*?\)/g, "")}
             </span>
 
-            <div className="flex flex-col gap-1">
               <span className="text-[10px] text-muted-foreground font-mono bg-muted/50 px-1.5 py-0.5 rounded flex items-center gap-1 w-fit">
                 {crossoverTime}
               </span>
-              <div className="flex flex-col text-[9px] text-muted-foreground/70 font-medium">
-                {/* @ts-ignore */}
-                {coin.firstSeen && (
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-2.5 h-2.5 opacity-50" />
-                    First: {new Date(coin.firstSeen).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </span>
-                )}
-                {/* @ts-ignore */}
-                {coin.lastUpdate && coin.firstSeen &&
-                  new Date(coin.lastUpdate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) !==
-                  new Date(coin.firstSeen).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) && (
-                    <span className="flex items-center gap-1">
-                      <RefreshCw className="w-2.5 h-2.5 opacity-50" />
-                      Update: {new Date(coin.lastUpdate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                    </span>
-                  )}
-              </div>
-            </div>
           </div>
         </TableCell>
 
